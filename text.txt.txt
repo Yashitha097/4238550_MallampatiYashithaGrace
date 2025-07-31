@@ -3,3 +3,4 @@ add .
 commit 
 push
 branch
+pull
