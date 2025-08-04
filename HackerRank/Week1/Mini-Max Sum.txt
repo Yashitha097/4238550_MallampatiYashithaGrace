@@ -1,3 +1,4 @@
+#min-max sum
 N=input().split()
 sum_num=0
 min_value=int(N[0])
