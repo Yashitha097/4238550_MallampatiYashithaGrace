@@ -1,0 +1,17 @@
+#Plus Minus problem in python
+N=int(input())
+A=input().split()
+int_num=[]
+postive_count=0
+negative_count=0
+zero_count=0
+for i in A:
+    if (int(i))>0:
+        postive_count+=1 
+    elif (int(i))< 0:
+        negative_count +=1 
+    else:
+        zero_count +=1 
+print(postive_count/N)
+print(negative_count/N)
+print(zero_count/N)
