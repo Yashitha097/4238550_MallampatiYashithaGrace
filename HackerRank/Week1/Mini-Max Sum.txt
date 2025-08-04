@@ -1,0 +1,17 @@
+N=input().split()
+sum_num=0
+min_value=int(N[0])
+max_value=int(N[0]) 
+for i in N:
+    int_num=int(i)
+    sum_num+=int_num
+    if int_num <= min_value:
+        min_value=int_num
+    elif int_num >= max_value:
+        max_value=int_num
+
+minimun_total=sum_num - max_value
+maximum_total=sum_num - min_value 
+print(minimun_total,end=" ")
+print(maximum_total)
+    
