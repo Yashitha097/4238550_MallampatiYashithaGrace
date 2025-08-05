@@ -1,4 +1,6 @@
 # 4238550_MallampatiYashithaGrace
+SOLOLEARN-C-INTERMEDIATE
+![Image](https://github.com/user-attachments/assets/3777951b-1ea9-46c3-a208-2d8104d7b228)
 SOLOLEARN-C-INTRODUCTION
 ![Image](https://github.com/user-attachments/assets/54269ece-40d4-4906-bc1c-bab95fddc2e7)
 GREAT LEARNING-AGILE
