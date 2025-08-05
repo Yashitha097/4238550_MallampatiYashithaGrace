@@ -1,0 +1,15 @@
+# Sparse Arrays in pthon
+number_string=int(input())
+list_string=[]
+list_queries=[]
+
+for i in range(number_string):
+    A=input()
+    list_string.append(A)
+number_queries=int(input())
+for j in range(number_queries):
+    B=input()
+    list_queries.append(B) 
+for k in list_queries:
+    count_num=list_string.count(k)
+    print(count_num)
