@@ -1,4 +1,4 @@
-# Time Conversion in python
+# Time Conversion problem in python
 A=input()
 last_index=A[-2:] 
 hour_index=A[0:2]
