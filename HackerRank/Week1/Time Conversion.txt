@@ -1,0 +1,15 @@
+# Time Conversion in python
+A=input()
+last_index=A[-2:] 
+hour_index=A[0:2]
+minute_index=A[3:5]
+sec_index=A[6:8]
+if last_index=="PM" and hour_index != "12":
+    adding_hour=str(12+int(hour_index))
+elif last_index=="PM" and hour_index == "12":
+    adding_hour=hour_index 
+elif last_index=="AM" and hour_index == "12":
+    adding_hour="00"
+else:
+    adding_hour=hour_index 
+print(adding_hour+":"+minute_index+":"+sec_index)
