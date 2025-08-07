@@ -1,0 +1,22 @@
+
+#include <stdio.h>
+int main(){
+    int n,i,j,first_diagonal=0,second_diagonal=0,absolute_difference;
+    scanf("%d",&n);
+    int arr[n][n];
+    for (i=0;i<n;i++){
+        for (j=0;j<n;j++){
+            scanf("%d", &arr[i][j]);
+        } 
+    }
+    for (i=0;i<n;i++){
+        first_diagonal = first_diagonal+arr[i][i];
+        second_diagonal = second_diagonal+arr[i][n-i-1];
+    }
+    if (first_diagonal>second_diagonal){
+        printf("%d",(first_diagonal-second_diagonal));
+    }
+    else{
+        printf("%d",(second_diagonal-first_diagonal));
+    }
+}

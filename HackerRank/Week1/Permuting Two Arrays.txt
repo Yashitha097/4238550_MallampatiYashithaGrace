@@ -1,0 +1,56 @@
+# include <stdio.h>
+int main(){
+    int q,i,j,a,swap,sum_num;
+    scanf("%d",&q);
+    for(a=0;a<q;a++){
+    int n,k,count=0;
+    scanf("%d %d",&n,&k);
+    
+    int arr1[n],arr2[n];
+    for (i=0;i<n;i++){
+        scanf("%d",&arr1[i]);
+    }
+    for (i=0;i<n;i++){
+        scanf("%d",&arr2[i]);
+    }
+    for (i=0;i<n;i++){
+        for(j=i+1;j<n;j++){
+            if (arr1[i]>arr1[j]){
+                swap = arr1[i];
+                arr1[i] = arr1[j];
+                arr1[j] = swap;
+                
+            }
+        }
+    }
+     for (i=0;i<n;i++){
+        for(j=i+1;j<n;j++){
+            if (arr2[i]<arr2[j]){
+                swap = arr2[i];
+                arr2[i] = arr2[j];
+                arr2[j] = swap;
+                
+            }
+        }
+    }
+    for(i=0;i<n;i++){
+        
+        sum_num=arr1[i]+arr2[i];
+        if (sum_num>=k){
+            count=count+1;
+        }
+        
+        
+    }
+    if (count==n){
+        printf("YES\n");
+    
+    }
+    else{
+        printf("NO\n");
+    }
+}
+}
+   
+    
+    
