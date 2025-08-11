@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main(){
+    int n,m,start_page,end_page;
+    scanf("%d %d",&n,&m);
+    start_page=m/2;
+    end_page=(n/2)-(m/2);
+    if(start_page<end_page){
+    printf("%d",start_page);
+    }
+    else{
+        printf("%d",end_page);
+    }
+    
+}
