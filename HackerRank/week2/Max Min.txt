@@ -1,0 +1,31 @@
+#include<stdio.h>
+int main(){
+    int n,m,i,j,start,end,difference_value,min_value=1000000000,temp;
+    scanf("%d %d",&n,&m);
+    int a[n];
+    for(i=0;i<n;i++){
+        scanf("%d",&a[i]);
+        
+    }
+    for(i=0;i<n;i++){
+        for(j=0;j<(n-1);j++){
+            
+        if (a[j]>a[j+1]){
+            temp=a[j];
+            a[j]=a[j+1];
+            a[j+1]=temp;
+        }
+        }
+    }
+    for(i=0;(i<=n-m);i++){
+        start=a[i];
+        end=a[i+m-1];
+        difference_value=end-start;
+        if (difference_value<min_value){
+            min_value=difference_value;
+        }
+        
+        
+    }
+    printf("%d",min_value);
+}
