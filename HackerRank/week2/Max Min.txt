@@ -1,4 +1,8 @@
 #include<stdio.h>
+#include<stdlib.h>
+int cmpfunc(const void *a, const void *b) {
+    return (*(int*)a - *(int*)b);
+}
 int main(){
     int n,m,i,j,start,end,difference_value,min_value=1000000000,temp;
     scanf("%d %d",&n,&m);
@@ -7,16 +11,7 @@ int main(){
         scanf("%d",&a[i]);
         
     }
-    for(i=0;i<n;i++){
-        for(j=0;j<(n-1);j++){
-            
-        if (a[j]>a[j+1]){
-            temp=a[j];
-            a[j]=a[j+1];
-            a[j+1]=temp;
-        }
-        }
-    }
+     qsort(a, n, sizeof(int), cmpfunc);
     for(i=0;(i<=n-m);i++){
         start=a[i];
         end=a[i+m-1];

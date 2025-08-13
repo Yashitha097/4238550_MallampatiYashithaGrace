@@ -1,0 +1,17 @@
+#include<stdio.h>
+int main(){
+    int t,i;
+    scanf("%d",&t);
+    int n,m;
+    for(i=0;i<t;i++){
+        scanf("%d %d",&n,&m);
+        if((n%2==0) || m==1){
+            printf("%d\n",2);
+            
+        }
+        else{
+            printf("%d\n",1);
+        }
+        
+    }
+}
