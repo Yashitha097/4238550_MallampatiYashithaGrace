@@ -1,0 +1,44 @@
+#include<stdio.h>
+int main(){
+    int t;
+    scanf("%d",&t);
+    while(t--){
+        long long n,temp_number,power_of_num;
+        scanf("%lld",&n);
+        int store =0,pass =1;
+        while(n != 1){
+            temp_number =n;
+            
+            while(temp_number>1){
+                if(temp_number %2 != 0){
+                    pass =0;
+                    break;
+                }
+                temp_number =temp_number/2;
+            }
+            if (pass){
+                n=n/2;
+                
+            }
+            else{
+               power_of_num =1;
+                while (power_of_num *2 <n){
+                    power_of_num =power_of_num *2;
+                }
+                n=n-power_of_num;
+            }
+            if (store ==0){
+                store=1;
+            }
+            else{
+                store=0;
+            }
+        }
+        if (store==1){
+            printf("Louise\n");
+        }
+        else{
+            printf("Richard\n");
+        }
+    }
+}

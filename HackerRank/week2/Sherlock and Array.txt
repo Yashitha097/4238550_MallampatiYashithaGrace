@@ -1,0 +1,42 @@
+#include<stdio.h>
+int main(){
+    int n;
+    scanf("%d",&n);
+    while(n--){
+        int m,i,found=0;
+        long long index_before=0,index_after=0;
+        scanf("%d",&m);
+        int a[m];
+        for(i=0;i<m;i++){
+            scanf("%d",&a[i]);
+            index_after += a[i];
+        }
+        
+        for(i=0;i<m;i++){
+                index_after=index_after-a[i];
+                
+                
+            
+            if (index_before==index_after){
+                found=1;
+                break;
+            }
+            index_before=index_before+a[i];
+           
+            
+            }
+            
+            if (found){
+                printf("YES\n");
+            }
+            else{
+                printf("NO\n");
+            }
+    
+            
+            
+    
+        }
+        }
+        
+    
