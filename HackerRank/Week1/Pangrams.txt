@@ -1,1 +1,28 @@
-panagram code
+#include <stdio.h>
+#include<ctype.h>
+int main(){
+    char string_1[1000],storing_ch;
+    int i,store_letter[26]={0},flag=1;
+    gets(string_1);
+    for(i=0;string_1[i] != '\0';i++){
+        storing_ch = tolower(string_1[i]);
+        if(storing_ch >= 'a' && storing_ch <= 'z'){
+            store_letter[storing_ch - 'a']=1;
+        }
+        
+    }
+    for (i=0;i<26;i++){
+        if(store_letter[i] == 0){
+            flag =0;
+            break;
+            
+        }
+    }
+    if (flag){
+        printf("pangram\n");
+    }
+    else{
+        printf("not pangram\n");
+    }
+}
+
