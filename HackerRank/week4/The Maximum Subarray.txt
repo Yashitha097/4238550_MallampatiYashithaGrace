@@ -1,0 +1,51 @@
+#include<stdio.h>
+int main(){
+    int N,i,j;
+    scanf("%d",&N);
+    for(i=0;i<N;i++){
+        int m,flag=0;
+        long long sum_1=0,sum_2=0;
+        scanf("%d",&m);
+        long long arr[m];
+        for(j=0;j<m;j++){
+            scanf("%lld",&arr[j]);
+        }
+        long long maxelement = arr[0];
+        for(j=0;j<m;j++){
+            if(arr[j]>=0){
+                sum_1=sum_1+arr[j];
+            }
+            else{
+                flag=flag+1;
+            }
+            if(arr[j]>maxelement){
+                maxelement=arr[j];
+            }
+        }
+        
+        if(flag==m){
+            sum_1=maxelement;
+            sum_2=maxelement;
+        }
+        else{
+            long long max_far=arr[0],max_end=arr[0];
+            for(j=1;j<m;j++){
+                if(max_end+arr[j]>arr[j]){
+                    max_end=max_end+arr[j];
+                }
+                else{
+                    max_end=arr[j];
+                }
+                if(max_end>max_far){
+                    max_far=max_end;
+                }
+            }
+            sum_2=max_far;
+            }
+        
+        
+        
+    
+    printf("%lld %lld\n",sum_2, sum_1);
+    }
+}
