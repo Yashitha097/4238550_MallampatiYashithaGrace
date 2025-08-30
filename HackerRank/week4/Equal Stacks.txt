@@ -1,0 +1,49 @@
+#include <stdio.h>
+int main(){
+    int a_12,b_12,c_12;
+    scanf("%d %d %d",&a_12,&b_12,&c_12);
+    int k;
+    int arr1[a_12],arr2[b_12],arr3[c_12];
+    int add_1=0,add_2=0,add_3=0;
+    int xy_1=0,xy_2=0,xy_3=0;
+    for(int i=0;i<a_12;i++){
+        scanf("%d",&arr1[i]);
+    }
+    for(int i=0;i<a_12;i++){
+       add_1 =add_1+ arr1[i];
+    }
+    for(int i=0;i<b_12;i++){
+        scanf("%d",&arr2[i]);
+    }
+    for(int i=0;i<b_12;i++){
+        add_2 =add_2 + arr2[i];
+    }
+    for(int i=0;i<c_12;i++){
+        scanf("%d",&arr3[i]);
+    }
+    for(int i=0;i<c_12;i++){
+        add_3 =add_3 + arr3[i];
+    }
+    for(k=1;k>0;k++){
+        if (xy_1 == a_12 || xy_2 == b_12 || xy_3 == c_12){
+            printf("0\n");
+            return 0;
+        }
+        if (add_1==add_2&& add_2==add_3){
+            printf("%d\n",add_1);
+            return 0;
+        }
+        if (add_1 >= add_2 && add_1 >= add_3){
+            add_1 =add_1 - arr1[xy_1];
+            xy_1++;
+        }
+        else if (add_2 >= add_1 && add_2 >= add_3){
+            add_2 =add_2 - arr2[xy_2];
+            xy_2++;
+        }
+        else{
+            add_3 =add_3 - arr3[xy_3];
+            xy_3++;
+        }
+    }
+}

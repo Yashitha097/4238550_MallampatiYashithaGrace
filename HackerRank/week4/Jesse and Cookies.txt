@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <stdlib.h>
+void shfit_1(int *o_1, int *p_1){
+    int ex = *o_1;
+    *o_1 = *p_1;
+    *p_1 = ex;
+}
+void shift_2(int a1[],int s_1,int s_2){
+    int small_num = s_2;
+    int l1 = 2 * s_2 + 1;
+    int r1 = 2 * s_2 + 2;
+    if (l1 < s_1 && a1[l1] < a1[small_num]){
+        small_num= l1;
+        
+    }
+    if(r1 <s_1 && a1[r1] < a1[small_num]){
+        small_num = r1;
+    }
+    if(small_num != s_2){
+        shfit_1(&a1[s_2],&a1[small_num]);
+        shift_2(a1,s_1,small_num);
+    }
+
+}
+void shift_3(int a2[],int store){
+    int x = (store -1)/2;
+    while(store > 0 && a2[store] < a2[x]){
+        shfit_1(&a2[store],&a2[x]);
+        store = x;
+        x=(store -1)/2;
+    }
+}
+int p_m(int a3[],int *sp){
+    if(*sp <= 0){
+        return -1;
+    }
+    int open = a3[0];
+    a3[0]=a3[*sp -1];
+    (*sp)--;
+   shift_2(a3, *sp,0);
+    return open;
+    }
+
+void H_1(int a4[],int *sp_1, int variable){
+    a4[*sp_1] = variable;
+    (*sp_1)++;
+    shift_3(a4,*sp_1 -1);
+}
+int sweep(int task,int a5[],int store_3){
+    for(int i=(store_3/2)-1;i>=0;i--){
+        shift_2(a5,store_3,i);
+    }
+    int close=0;
+    while(store_3>1&&a5[0]<task){
+        int min_1 = p_m(a5,&store_3);
+        int min_2 = p_m(a5,&store_3);
+        int mixing=min_1 +min_2 *2;
+        H_1(a5, &store_3,mixing);
+        close++;
+    }
+    if (a5[0]<task){
+        return -1;
+    }
+    return close;
+}
+int main(){
+    int a,b;
+    scanf("%d %d",&a,&b);
+    int *cookies= malloc(sizeof(int)*a);
+    for(int i=0;i<a;i++){
+        scanf("%d",&cookies[i]);
+    }
+    int last_one = sweep(b,cookies,a);
+    printf("%d\n",last_one);
+    return 0;
+}
