@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+    long long a_1,a_2;
+    scanf("%lld %lld",&a_1,&a_2);
+    long long * arr = (long long*) calloc(a_1+1,sizeof(long long));
+    for(long long i=0;i<a_2;i++){
+        long long q,w,e;
+        scanf("%lld %lld %lld",&q,&w,&e);
+        arr[q-1]+=e;
+        if(w<a_1){
+            arr[w]-=e;
+        }
+    }
+    long long m_num =0,s_num=0;
+    for(long long i=0;i<a_1;i++){
+        s_num+= arr[i];
+        if(s_num>m_num){
+            m_num=s_num;
+        }
+    }
+    printf("%lld\n",m_num);
+    return 0;
+    
+}

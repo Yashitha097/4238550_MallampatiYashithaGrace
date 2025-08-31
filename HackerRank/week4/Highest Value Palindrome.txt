@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <string.h>
+int main(){
+    int a_1,a_2;
+    scanf("%d %d",&a_1,&a_2);
+    char string_1[a_1+1];
+    scanf("%s",string_1);
+    int swap[a_1];
+    for (int i=0;i<a_1;i++) swap[i] = 0;
+    int l_1 =0,r_1=a_1-1;
+    while ( l_1<r_1){
+        if (string_1[l_1] != string_1[r_1]){
+            if (string_1[l_1]>string_1[r_1]) string_1[r_1] = string_1[l_1];
+            else string_1[l_1] = string_1[r_1];
+            swap[l_1] = swap[r_1] = 1;
+            a_2--;
+        }
+        l_1++;
+        r_1--;
+    }
+    if (a_2<0){
+        printf("-1\n");
+        return 0;
+    }
+    l_1 = 0;
+    r_1=a_1-1;
+    while(l_1 <= r_1){
+        if(l_1== r_1){
+            if(a_2>0) string_1[l_1]='9';
+        }
+        else{
+            if(string_1[ l_1] != '9'){
+                if(a_2>=2 || (a_2>=1 && (swap[ l_1]|| swap[ r_1]))){
+                    string_1[ l_1]=string_1[r_1]='9';
+                    if(swap[ l_1]|| swap[r_1]) a_2--;
+                    else a_2-=2;
+                }
+            }
+        }
+     l_1++;
+    r_1--;
+}
+printf("%s\n",string_1);
+return 0;
+}
