@@ -1,0 +1,61 @@
+#include<stdio.h>
+
+int s_1[100000],s_2[100000];
+int t_1= -1,t_2=-1;
+void p_1(int x){
+    s_1[++t_1]=x;
+    
+}
+int sq_1(){
+    return s_1[t_1--];
+}
+void sq_2(int x){
+    s_2[++t_2]=x;
+}
+int sq_3(){
+    return s_2[t_2--];
+}
+int sq_4(){
+    return s_2[t_2];
+}
+void sq_5(){
+    if(t_2== -1){
+        while(t_1 != -1){
+            sq_2(sq_1());
+        }
+    }
+}
+void sq_6(int x){
+    p_1(x);
+}
+void sq_7(){
+    sq_5();
+    if (t_2 != -1){
+        sq_3();
+    }
+}
+void sq_8(){
+    sq_5();
+    if(t_2 != -1){
+        printf("%d\n",sq_4());
+    }
+}
+int main(){
+    int q;
+    scanf("%d",&q);
+    for(int i=0;i<q;i++){
+        int type,x;
+        scanf("%d",&type);
+        if(type==1){
+            scanf("%d",&x);
+            sq_6(x);
+        }
+        else if(type==2){
+            sq_7();
+        }
+        else if(type==3){
+            sq_8();
+        }
+    }
+    return 0;
+}

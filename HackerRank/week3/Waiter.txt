@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+bool p_1(int n_1){
+    if(n_1<2){
+        return false;
+    }
+    for(int i=2;i*i<=n_1;i++){
+        if(n_1%i==0){
+            return false;
+        }
+        
+    }
+    return true;
+    
+}
+int p_2(int idex_1){
+    int c_1=0;
+    int number=2;
+    while(true){
+        if(p_1(number)){
+            c_1++;
+            if(c_1==idex_1){
+                return number;
+            }
+           
+        }
+         number++;
+    }
+    }
+    int main(){
+        int a,b;
+        scanf("%d %d",&a,&b);
+        int store[a];
+        for(int i=0;i<a;i++){
+            scanf("%d",&store[i]);
+        }
+        for(int i=1;i<=b;i++){
+            int pr=p_2(i);
+            int A[a],B[a];
+            int T_1=-1,T_2=-1;
+            for(int j=a-1;j>=0;j--){
+                if(store[j]%pr==0){
+                    B[++T_2]=store[j];
+                }
+                else{
+                    A[++T_1]=store[j];
+                }
+            }
+            for(int j=T_2;j>=0;j--){
+                printf("%d\n",B[j]);
+            }
+            a=T_1+1;
+            for(int j=0;j<a;j++){
+                store[j]=A[j];
+            }
+        }
+        for(int j=a-1;j>=0;j--){
+            printf("%d\n",store[j]);
+        }
+         return 0;
+        
+    }
+   
+    
