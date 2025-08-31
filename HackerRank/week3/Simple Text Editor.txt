@@ -16,7 +16,7 @@ int main(){
     string_1=(char*)malloc(MAX*sizeof(char*));
     history=(char**)malloc(MAX*sizeof(char*));
    string_1[0]='\0';
-    for(int i=0;i<l;i++){
+    while(l--){
         
         scanf("%d",&value);
         if(value==1){
